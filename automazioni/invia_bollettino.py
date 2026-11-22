@@ -44,7 +44,7 @@ font-family:Arial,Helvetica,sans-serif;color:#1d2433">
 <p style="margin-top:28px"><a href="{SITO}bollettino.html" style="background:#0f6b5c;color:#fff;
 padding:12px 20px;border-radius:999px;text-decoration:none">Leggi sul sito</a></p>
 <p style="font-size:12px;color:#5b6475;margin-top:28px">Le schede non sostituiscono gli avvisi ufficiali.
-ABR Registratori Telematici di Fabio De Angelis, Viterbo.
+Dossier Bando – a cura di Fabio De Angelis, Viterbo.
 <a href="{{{{ unsubscribe }}}}">Cancella l'iscrizione</a></p>
 </div></body></html>"""
 
