@@ -8,7 +8,7 @@ import os
 import re
 import urllib.request
 
-SITO = "https://kamuro987.github.io/dossier-bando/"
+SITO = "https://dossierbando.it/"
 API = "https://api.brevo.com/v3"
 
 
