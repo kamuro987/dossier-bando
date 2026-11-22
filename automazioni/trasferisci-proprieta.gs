@@ -26,12 +26,10 @@ function proponiTrasferimento() {
     if (!proprietario || (proprietario.emailAddress || '').toLowerCase() !== io) return;
     const k = permessi.find(p => (p.emailAddress || '').toLowerCase() === NUOVO_PROPRIETARIO);
     if (k && k.pendingOwner) return;
-    if (k) {
-      chiama_('patch', id + '/permissions/' + k.id, { role: 'writer', pendingOwner: true });
-    } else {
-      chiama_('post', id + '/permissions?sendNotificationEmail=false',
-        { type: 'user', role: 'writer', emailAddress: NUOVO_PROPRIETARIO, pendingOwner: true });
-    }
+    // Il permesso di kamuro di solito è ereditato dalla cartella: non si può modificare,
+    // quindi se ne crea uno diretto con pendingOwner (Drive lo accetta anche se esiste già).
+    chiama_('post', id + '/permissions?sendNotificationEmail=false',
+      { type: 'user', role: 'writer', emailAddress: NUOVO_PROPRIETARIO, pendingOwner: true });
   });
 }
 
