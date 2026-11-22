@@ -1,0 +1,36 @@
+name: Invia bollettino via email
+
+# Ogni volta che il bollettino viene aggiornato sul sito, crea e invia
+# una campagna Brevo agli iscritti. Si attiva solo quando sono configurati:
+#   secrets.BREVO_API_KEY, vars.BREVO_LIST_ID, vars.BREVO_SENDER_EMAIL
+on:
+  push:
+    branches: [main]
+    paths: [bollettino.html]
+  workflow_dispatch:
+
+jobs:
+  invia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Controlla configurazione
+        id: cfg
+        env:
+          KEY: ${{ secrets.BREVO_API_KEY }}
+          LIST: ${{ vars.BREVO_LIST_ID }}
+          SENDER: ${{ vars.BREVO_SENDER_EMAIL }}
+        run: |
+          if [ -z "$KEY" ] || [ -z "$LIST" ] || [ -z "$SENDER" ]; then
+            echo "Configurazione Brevo assente: invio saltato."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Crea e invia la campagna
+        if: steps.cfg.outputs.ok == 'true'
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_LIST_ID: ${{ vars.BREVO_LIST_ID }}
+          BREVO_SENDER_EMAIL: ${{ vars.BREVO_SENDER_EMAIL }}
+        run: python3 automazioni/invia_bollettino.py
