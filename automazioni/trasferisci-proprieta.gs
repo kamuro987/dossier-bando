@@ -2,73 +2,63 @@
  * Trasferimento automatico della proprietà dei file
  * dalla cartella condivisa "Piano di rendita Claude" a kamuro987@gmail.com.
  *
- * Lo stesso file va incollato in DUE progetti Apps Script:
- *   - nell'account feilongjkd@gmail.com → eseguire una volta  setupFeilong()
- *   - nell'account kamuro987@gmail.com  → eseguire una volta  setupKamuro()
- *
- * In entrambi i progetti: Servizi (+) → aggiungere "Drive API" (versione v3).
- *
- * Cosa succede poi, da solo, ogni ora:
- *   1. feilong propone kamuro come nuovo proprietario dei file che ha creato nella cartella;
- *   2. kamuro accetta la proprietà.
- * Lo script agisce SOLO dentro la cartella del progetto e le sue sottocartelle.
+ * Lo stesso codice gira in DUE progetti Apps Script:
+ *   - account feilongjkd@gmail.com → eseguire una volta setupFeilong()
+ *   - account kamuro987@gmail.com  → eseguire una volta setupKamuro()
+ * Poi, ogni ora: feilong propone kamuro come proprietario, kamuro accetta.
+ * Agisce SOLO dentro la cartella del progetto e le sue sottocartelle.
+ * Usa l'API REST di Drive v3 (nessun servizio avanzato da attivare).
  */
 
 const CARTELLA_PROGETTO = '1lCO-axmAnok-3gyXz0txJ_VQQaSchA80';
 const NUOVO_PROPRIETARIO = 'kamuro987@gmail.com';
+const API = 'https://www.googleapis.com/drive/v3/files/';
 
-/* ---------- account feilongjkd ---------- */
-
-function setupFeilong() {
-  creaTrigger_('proponiTrasferimento');
-  proponiTrasferimento();
-}
+function setupFeilong() { creaTrigger_('proponiTrasferimento'); proponiTrasferimento(); }
+function setupKamuro() { creaTrigger_('accettaTrasferimento'); accettaTrasferimento(); }
 
 function proponiTrasferimento() {
   const io = Session.getActiveUser().getEmail().toLowerCase();
   perOgniElemento_(CARTELLA_PROGETTO, function (id) {
-    const permessi = Drive.Permissions.list(id, {
-      fields: 'permissions(id,emailAddress,role,pendingOwner)'
-    }).permissions || [];
+    const permessi = permessi_(id);
     const proprietario = permessi.find(p => p.role === 'owner');
     if (!proprietario || (proprietario.emailAddress || '').toLowerCase() !== io) return;
-
-    const kamuro = permessi.find(p => (p.emailAddress || '').toLowerCase() === NUOVO_PROPRIETARIO);
-    if (kamuro && kamuro.pendingOwner) return; // già proposto
-
-    if (kamuro) {
-      Drive.Permissions.update({ role: 'writer', pendingOwner: true }, id, kamuro.id);
+    const k = permessi.find(p => (p.emailAddress || '').toLowerCase() === NUOVO_PROPRIETARIO);
+    if (k && k.pendingOwner) return;
+    if (k) {
+      chiama_('patch', id + '/permissions/' + k.id, { role: 'writer', pendingOwner: true });
     } else {
-      Drive.Permissions.create(
-        { type: 'user', role: 'writer', emailAddress: NUOVO_PROPRIETARIO, pendingOwner: true },
-        id,
-        { sendNotificationEmail: false }
-      );
+      chiama_('post', id + '/permissions?sendNotificationEmail=false',
+        { type: 'user', role: 'writer', emailAddress: NUOVO_PROPRIETARIO, pendingOwner: true });
     }
   });
-}
-
-/* ---------- account kamuro987 ---------- */
-
-function setupKamuro() {
-  creaTrigger_('accettaTrasferimento');
-  accettaTrasferimento();
 }
 
 function accettaTrasferimento() {
   const io = Session.getActiveUser().getEmail().toLowerCase();
   perOgniElemento_(CARTELLA_PROGETTO, function (id) {
-    const permessi = Drive.Permissions.list(id, {
-      fields: 'permissions(id,emailAddress,role,pendingOwner)'
-    }).permissions || [];
-    const mio = permessi.find(p => (p.emailAddress || '').toLowerCase() === io);
+    const mio = permessi_(id).find(p => (p.emailAddress || '').toLowerCase() === io);
     if (mio && mio.pendingOwner && mio.role !== 'owner') {
-      Drive.Permissions.update({ role: 'owner' }, id, mio.id, { transferOwnership: true });
+      chiama_('patch', id + '/permissions/' + mio.id + '?transferOwnership=true', { role: 'owner' });
     }
   });
 }
 
-/* ---------- comuni ---------- */
+function permessi_(id) {
+  return chiama_('get', id + '/permissions?fields=permissions(id,emailAddress,role,pendingOwner)').permissions || [];
+}
+
+function chiama_(metodo, percorso, corpo) {
+  const opzioni = {
+    method: metodo,
+    headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() },
+    muteHttpExceptions: true
+  };
+  if (corpo) { opzioni.contentType = 'application/json'; opzioni.payload = JSON.stringify(corpo); }
+  const r = UrlFetchApp.fetch(API + percorso, opzioni);
+  if (r.getResponseCode() >= 300) throw new Error(r.getResponseCode() + ' ' + r.getContentText());
+  return JSON.parse(r.getContentText() || '{}');
+}
 
 function perOgniElemento_(idCartella, azione) {
   const cartella = DriveApp.getFolderById(idCartella);
