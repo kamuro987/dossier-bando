@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kamuro987.github.io/dossier-bando/sitemap.xml
