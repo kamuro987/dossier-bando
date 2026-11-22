@@ -34,6 +34,13 @@ def chiama(metodo, percorso, dati=None):
 
 
 def main():
+    lista = chiama("GET", f"/contacts/lists/{int(os.environ['BREVO_LIST_ID'])}")
+    iscritti = lista.get("uniqueSubscribers", lista.get("totalSubscribers", 0))
+    if not iscritti:
+        print("La lista non ha ancora iscritti: invio saltato.")
+        return
+    print(f"Iscritti nella lista: {iscritti}")
+
     html = open("bollettino.html", encoding="utf-8").read()
     numero = re.search(r'<span class="tag">([^<]*Numero[^<]*)</span>', html)
     titolo = numero.group(1).strip() if numero else "Nuovo bollettino"
