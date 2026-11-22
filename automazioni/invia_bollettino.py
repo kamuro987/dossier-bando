@@ -6,6 +6,7 @@ con link al sito. Usato dal workflow .github/workflows/invia-bollettino.yml.
 import json
 import os
 import re
+import urllib.error
 import urllib.request
 
 SITO = "https://dossierbando.it/"
@@ -23,9 +24,13 @@ def chiama(metodo, percorso, dati=None):
             "accept": "application/json",
         },
     )
-    with urllib.request.urlopen(req) as r:
-        corpo = r.read()
-        return json.loads(corpo) if corpo else {}
+    try:
+        with urllib.request.urlopen(req) as r:
+            corpo = r.read()
+            return json.loads(corpo) if corpo else {}
+    except urllib.error.HTTPError as e:
+        print(f"Errore Brevo {e.code} su {metodo} {percorso}: {e.read().decode(errors='replace')}")
+        raise
 
 
 def main():
