@@ -18,12 +18,13 @@ function setupFeilong() { creaTrigger_('proponiTrasferimento'); proponiTrasferim
 function setupKamuro() { creaTrigger_('accettaTrasferimento'); accettaTrasferimento(); }
 
 function proponiTrasferimento() {
-  const io = Session.getActiveUser().getEmail().toLowerCase();
-  if (io === NUOVO_PROPRIETARIO) return; // non va eseguita nell'account kamuro
+  // Nota: Session.getActiveUser() può restituire una stringa vuota negli account gmail,
+  // quindi non la usiamo. Solo il proprietario può proporre il trasferimento:
+  // per gli altri file la chiamata fallisce e viene saltata.
   perOgniElemento_(CARTELLA_PROGETTO, function (id) {
     const permessi = permessi_(id);
     const proprietario = permessi.find(p => p.role === 'owner');
-    if (!proprietario || (proprietario.emailAddress || '').toLowerCase() !== io) return;
+    if (!proprietario || (proprietario.emailAddress || '').toLowerCase() === NUOVO_PROPRIETARIO) return;
     const k = permessi.find(p => (p.emailAddress || '').toLowerCase() === NUOVO_PROPRIETARIO);
     if (k && k.pendingOwner) return;
     // Il permesso di kamuro di solito è ereditato dalla cartella: non si può modificare,
@@ -34,9 +35,8 @@ function proponiTrasferimento() {
 }
 
 function accettaTrasferimento() {
-  const io = Session.getActiveUser().getEmail().toLowerCase();
   perOgniElemento_(CARTELLA_PROGETTO, function (id) {
-    const mio = permessi_(id).find(p => (p.emailAddress || '').toLowerCase() === io);
+    const mio = permessi_(id).find(p => (p.emailAddress || '').toLowerCase() === NUOVO_PROPRIETARIO);
     if (mio && mio.pendingOwner && mio.role !== 'owner') {
       chiama_('patch', id + '/permissions/' + mio.id + '?transferOwnership=true', { role: 'owner' });
     }
