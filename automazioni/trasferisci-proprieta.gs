@@ -81,3 +81,7 @@ function creaTrigger_(nomeFunzione) {
     .forEach(t => ScriptApp.deleteTrigger(t));
   ScriptApp.newTrigger(nomeFunzione).timeBased().everyHours(1).create();
 }
+
+// Mai eseguita: serve solo a far chiedere ad Apps Script il permesso Drive completo
+// (necessario per cambiare i proprietari), invece della sola lettura.
+function permessoCompleto_() { DriveApp.createFolder; DriveApp.removeFile; }
