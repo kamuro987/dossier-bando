@@ -19,6 +19,7 @@ function setupKamuro() { creaTrigger_('accettaTrasferimento'); accettaTrasferime
 
 function proponiTrasferimento() {
   const io = Session.getActiveUser().getEmail().toLowerCase();
+  if (io === NUOVO_PROPRIETARIO) return; // non va eseguita nell'account kamuro
   perOgniElemento_(CARTELLA_PROGETTO, function (id) {
     const permessi = permessi_(id);
     const proprietario = permessi.find(p => p.role === 'owner');
