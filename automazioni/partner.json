@@ -4,127 +4,177 @@
     {
       "nome": "CSV Lazio ETS",
       "territorio": "del Lazio",
-      "email": "info@csvlazio.org"
+      "email": "info@csvlazio.org",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.70929862986@smtp-relay.mailin.fr>"
     },
     {
       "nome": "Forum Terzo Settore Lazio",
       "territorio": "del Lazio",
-      "email": "lazio@forumterzosettore.it"
+      "email": "lazio@forumterzosettore.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.91202793265@smtp-relay.mailin.fr>"
     },
     {
       "nome": "UISP Comitato Regionale Lazio",
       "territorio": "del Lazio",
-      "email": "lazio@uisp.it"
+      "email": "lazio@uisp.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.42476191044@smtp-relay.mailin.fr>"
     },
     {
       "nome": "UISP Roma",
       "territorio": "di Roma e provincia",
-      "email": "roma@uisp.it"
+      "email": "roma@uisp.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.29403543566@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSI Roma",
       "territorio": "di Roma e provincia",
-      "email": "comunicazione@csiroma.it"
+      "email": "comunicazione@csiroma.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.67385217418@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSI Comitato Regionale Lazio",
       "territorio": "del Lazio",
-      "email": "segreteria@csilazio.it"
+      "email": "segreteria@csilazio.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.44987930557@smtp-relay.mailin.fr>"
     },
     {
       "nome": "AICS Comitato Regionale Lazio",
       "territorio": "del Lazio",
-      "email": "lazio@aics.it"
+      "email": "lazio@aics.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.46126175273@smtp-relay.mailin.fr>"
     },
     {
       "nome": "AICS Comitato Provinciale Roma",
       "territorio": "di Roma e provincia",
-      "email": "roma@aics.it"
+      "email": "roma@aics.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.70952763816@smtp-relay.mailin.fr>"
     },
     {
       "nome": "ASI Comitato Regionale Lazio",
       "territorio": "del Lazio",
-      "email": "info@asilazio.it"
+      "email": "info@asilazio.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.83118421646@smtp-relay.mailin.fr>"
     },
     {
       "nome": "ASI Comitato Provinciale Roma",
       "territorio": "di Roma e provincia",
-      "email": "info@asiroma.org"
+      "email": "info@asiroma.org",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.65183209680@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSEN Comitato Provinciale Roma",
       "territorio": "di Roma e provincia",
-      "email": "info@csenroma.it"
+      "email": "info@csenroma.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.22861738190@smtp-relay.mailin.fr>"
     },
     {
       "nome": "ENDAS Comitato Regionale Lazio",
       "territorio": "del Lazio",
-      "email": "lazio@endas.it"
+      "email": "lazio@endas.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.46714151431@smtp-relay.mailin.fr>"
     },
     {
       "nome": "Cesvot – CSV Toscana",
       "territorio": "della Toscana",
-      "email": "info@cesvot.it"
+      "email": "info@cesvot.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.71575079829@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSV Napoli",
       "territorio": "dell'area metropolitana di Napoli",
-      "email": "comunicazione@csvnapoli.it"
+      "email": "comunicazione@csvnapoli.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.37664195534@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSV Marche ETS",
       "territorio": "delle Marche",
-      "email": "segreteria@csv.marche.it"
+      "email": "segreteria@csv.marche.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.48095072407@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSV San Nicola ETS",
       "territorio": "di Bari e della BAT",
-      "email": "comunicazione@csvbari.com"
+      "email": "comunicazione@csvbari.com",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.61982163297@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSV Abruzzo",
       "territorio": "dell'Abruzzo",
-      "email": "segreteria@csvabruzzo.it"
+      "email": "segreteria@csvabruzzo.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.45377270498@smtp-relay.mailin.fr>"
     },
     {
       "nome": "Vol.To – CSV Torino",
       "territorio": "di Torino e provincia",
-      "email": "centroservizi@volontariatotorino.it"
+      "email": "centroservizi@volontariatotorino.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.91282510397@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSV Emilia",
       "territorio": "di Parma, Piacenza e Reggio Emilia",
-      "email": "info@csvemilia.it"
+      "email": "info@csvemilia.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.35334548707@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSV Milano",
       "territorio": "dell'area metropolitana di Milano",
-      "email": "comunicazione.milano@csvlombardia.it"
+      "email": "comunicazione.milano@csvlombardia.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.98521194924@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CeSVoP – CSV Palermo",
       "territorio": "della Sicilia occidentale",
-      "email": "info@cesvop.org"
+      "email": "info@cesvop.org",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.68606055836@smtp-relay.mailin.fr>"
     },
     {
       "nome": "Cesvol Umbria",
       "territorio": "dell'Umbria",
-      "email": "perugia@cesvolumbria.org"
+      "email": "perugia@cesvolumbria.org",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.61659739911@smtp-relay.mailin.fr>"
     },
     {
       "nome": "UISP Comitato Regionale Toscana",
       "territorio": "della Toscana",
-      "email": "toscana@uisp.it"
+      "email": "toscana@uisp.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.79282214117@smtp-relay.mailin.fr>"
     },
     {
       "nome": "UISP Comitato Regionale Emilia-Romagna",
       "territorio": "dell'Emilia-Romagna",
-      "email": "emiliaromagna@uisp.it"
+      "email": "emiliaromagna@uisp.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.25360760022@smtp-relay.mailin.fr>"
     },
     {
       "nome": "CSI Milano",
       "territorio": "di Milano",
-      "email": "info@csi.milano.it"
+      "email": "info@csi.milano.it",
+      "inviato": "2026-11-24",
+      "message_id": "<202611241538.56927287426@smtp-relay.mailin.fr>"
     }
   ]
 }
