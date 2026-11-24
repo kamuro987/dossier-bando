@@ -1,0 +1,31 @@
+name: Invia proposta partner
+
+# Quando automazioni/partner.json cambia, scrive una sola volta alle
+# organizzazioni non ancora contattate e registra la data di invio.
+on:
+  push:
+    branches: [main]
+    paths: [automazioni/partner.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: invia-partner
+
+jobs:
+  invia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Invia le email
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_SENDER_EMAIL: ${{ vars.BREVO_SENDER_EMAIL }}
+        run: python3 automazioni/invia_partner.py
+      - name: Registra gli invii
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
+          git add automazioni/partner.json
+          git diff --cached --quiet || (git commit -m "Partner: registra gli invii" && git push)

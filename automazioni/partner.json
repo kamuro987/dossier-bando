@@ -1,0 +1,130 @@
+{
+  "nota": "Registro dei contatti partner. Ogni organizzazione si contatta una sola volta: le voci con 'inviato' non vengono più scritte. Per una nuova organizzazione aggiungi una voce senza 'inviato'.",
+  "partner": [
+    {
+      "nome": "CSV Lazio ETS",
+      "territorio": "del Lazio",
+      "email": "info@csvlazio.org"
+    },
+    {
+      "nome": "Forum Terzo Settore Lazio",
+      "territorio": "del Lazio",
+      "email": "lazio@forumterzosettore.it"
+    },
+    {
+      "nome": "UISP Comitato Regionale Lazio",
+      "territorio": "del Lazio",
+      "email": "lazio@uisp.it"
+    },
+    {
+      "nome": "UISP Roma",
+      "territorio": "di Roma e provincia",
+      "email": "roma@uisp.it"
+    },
+    {
+      "nome": "CSI Roma",
+      "territorio": "di Roma e provincia",
+      "email": "comunicazione@csiroma.it"
+    },
+    {
+      "nome": "CSI Comitato Regionale Lazio",
+      "territorio": "del Lazio",
+      "email": "segreteria@csilazio.it"
+    },
+    {
+      "nome": "AICS Comitato Regionale Lazio",
+      "territorio": "del Lazio",
+      "email": "lazio@aics.it"
+    },
+    {
+      "nome": "AICS Comitato Provinciale Roma",
+      "territorio": "di Roma e provincia",
+      "email": "roma@aics.it"
+    },
+    {
+      "nome": "ASI Comitato Regionale Lazio",
+      "territorio": "del Lazio",
+      "email": "info@asilazio.it"
+    },
+    {
+      "nome": "ASI Comitato Provinciale Roma",
+      "territorio": "di Roma e provincia",
+      "email": "info@asiroma.org"
+    },
+    {
+      "nome": "CSEN Comitato Provinciale Roma",
+      "territorio": "di Roma e provincia",
+      "email": "info@csenroma.it"
+    },
+    {
+      "nome": "ENDAS Comitato Regionale Lazio",
+      "territorio": "del Lazio",
+      "email": "lazio@endas.it"
+    },
+    {
+      "nome": "Cesvot – CSV Toscana",
+      "territorio": "della Toscana",
+      "email": "info@cesvot.it"
+    },
+    {
+      "nome": "CSV Napoli",
+      "territorio": "dell'area metropolitana di Napoli",
+      "email": "comunicazione@csvnapoli.it"
+    },
+    {
+      "nome": "CSV Marche ETS",
+      "territorio": "delle Marche",
+      "email": "segreteria@csv.marche.it"
+    },
+    {
+      "nome": "CSV San Nicola ETS",
+      "territorio": "di Bari e della BAT",
+      "email": "comunicazione@csvbari.com"
+    },
+    {
+      "nome": "CSV Abruzzo",
+      "territorio": "dell'Abruzzo",
+      "email": "segreteria@csvabruzzo.it"
+    },
+    {
+      "nome": "Vol.To – CSV Torino",
+      "territorio": "di Torino e provincia",
+      "email": "centroservizi@volontariatotorino.it"
+    },
+    {
+      "nome": "CSV Emilia",
+      "territorio": "di Parma, Piacenza e Reggio Emilia",
+      "email": "info@csvemilia.it"
+    },
+    {
+      "nome": "CSV Milano",
+      "territorio": "dell'area metropolitana di Milano",
+      "email": "comunicazione.milano@csvlombardia.it"
+    },
+    {
+      "nome": "CeSVoP – CSV Palermo",
+      "territorio": "della Sicilia occidentale",
+      "email": "info@cesvop.org"
+    },
+    {
+      "nome": "Cesvol Umbria",
+      "territorio": "dell'Umbria",
+      "email": "perugia@cesvolumbria.org"
+    },
+    {
+      "nome": "UISP Comitato Regionale Toscana",
+      "territorio": "della Toscana",
+      "email": "toscana@uisp.it"
+    },
+    {
+      "nome": "UISP Comitato Regionale Emilia-Romagna",
+      "territorio": "dell'Emilia-Romagna",
+      "email": "emiliaromagna@uisp.it"
+    },
+    {
+      "nome": "CSI Milano",
+      "territorio": "di Milano",
+      "email": "info@csi.milano.it"
+    }
+  ]
+}
