@@ -1,0 +1,25 @@
+name: Invia email singola
+
+on:
+  workflow_dispatch:
+    inputs:
+      a: {description: "Destinatario", required: true}
+      nome_a: {description: "Nome destinatario", required: false}
+      oggetto: {description: "Oggetto", required: true}
+      html: {description: "Corpo HTML", required: true}
+      rispondi_a: {description: "Indirizzo per le risposte", required: false}
+
+jobs:
+  invia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_SENDER_EMAIL: ${{ vars.BREVO_SENDER_EMAIL }}
+          A: ${{ inputs.a }}
+          NOME_A: ${{ inputs.nome_a }}
+          OGGETTO: ${{ inputs.oggetto }}
+          HTML: ${{ inputs.html }}
+          RISPONDI_A: ${{ inputs.rispondi_a }}
+        run: python3 automazioni/invia_email.py
