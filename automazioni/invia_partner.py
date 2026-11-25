@@ -30,7 +30,7 @@ def testo(p):
 def invia(p, mittente):
     corpo = {
         "sender": {"name": "Dossier Bando – Fabio De Angelis", "email": mittente},
-        "replyTo": {"email": mittente, "name": "Fabio De Angelis"},
+        "replyTo": {"email": "info@dossierbando.it", "name": "Dossier Bando"},
         "to": [{"email": p["email"], "name": p["nome"]}],
         "subject": f"Un bollettino gratuito dei bandi per le associazioni {p['territorio']}",
         "htmlContent": f'<!DOCTYPE html><html lang="it"><body style="font-family:Arial,Helvetica,sans-serif;color:#1d2433;font-size:15px;line-height:1.5">{testo(p)}</body></html>',

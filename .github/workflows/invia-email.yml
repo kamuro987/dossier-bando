@@ -7,7 +7,7 @@ on:
       nome_a: {description: "Nome destinatario", required: false}
       oggetto: {description: "Oggetto", required: true}
       html: {description: "Corpo HTML", required: true}
-      rispondi_a: {description: "Indirizzo per le risposte", required: false}
+      rispondi_a: {description: "Indirizzo per le risposte", required: false, default: "info@dossierbando.it"}
 
 jobs:
   invia:
