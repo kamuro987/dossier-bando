@@ -1,11 +1,9 @@
 name: Invia proposta partner
 
-# Quando automazioni/partner.json cambia, scrive una sola volta alle
-# organizzazioni non ancora contattate e registra la data di invio.
+# Solo avvio manuale (riserva): dal 25/11/2026 le proposte partono da
+# info@dossierbando.it con automazioni/posta.py. Scrive una sola volta alle
+# organizzazioni senza "inviato" e registra la data di invio.
 on:
-  push:
-    branches: [main]
-    paths: [automazioni/partner.json]
   workflow_dispatch:
 
 permissions:
